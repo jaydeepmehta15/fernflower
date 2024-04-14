@@ -32,11 +32,10 @@ jar {
 
 
 publishing {
-
   repositories {
     maven {
       name = "GitHubPackages"
-      url = "https://github.com/jaydeepmehta15/fernflower/packages"
+      url = uri("https://maven.pkg.github.com/jaydeepmehta15/fernflower")
       credentials {
         username = System.getenv("GITHUB_ACTOR")
         password = System.getenv("GITHUB_TOKEN")
@@ -44,12 +43,13 @@ publishing {
     }
   }
   publications {
-        maven(MavenPublication) {
-            groupId = 'org.jay'
-            artifactId = 'fernflower'
-            version = '1.0'
+    maven(MavenPublication) {
+      groupId = 'org.jay'
+      artifactId = 'fernflower'
+      version = '1.0'
 
-            from components.java
-        }
+      from components.java
     }
+  }
 }
+
